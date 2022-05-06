@@ -1,0 +1,20 @@
+{
+    "ID":"my twins json id",
+    "UpdateRate":1,
+    "PublishRate":1,
+    "TimeMultiplier":1,
+    "ManualTick":false,
+    "TestNum":123.4,
+    "grids":[
+        {
+            "id":"grid 1", 
+            "v": 480,
+            "f": 60
+        },
+        {
+            "id":"grid 2", 
+            "v": 480,
+            "f": 60
+        }
+    ]
+}
