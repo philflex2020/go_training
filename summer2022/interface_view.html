@@ -1,0 +1,12 @@
+  <html>
+			<head>
+			  <title>First Program</title>
+			</head>
+			<body>
+                <select>
+                    {{- range $key, $value := .Fruits }} 
+                    <option value="{{$key}}"> {{$value}}</option>
+                    {{- end}}
+			   </select>
+			</body>
+			</html>

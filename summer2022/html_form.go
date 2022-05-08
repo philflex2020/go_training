@@ -34,10 +34,38 @@ func login(w http.ResponseWriter, r *http.Request) {
         fmt.Println("password:", r.Form["password"])
     }
 }
+func systemfm(w http.ResponseWriter, r *http.Request) {
+    fmt.Println("method:", r.Method) //get request method
+    if r.Method == "GET" {
+        t, _ := template.ParseFiles("dropdown.html")
+        t.Execute(w, nil)
+    } else {
+        r.ParseForm()
+        // logic part of log in
+        fmt.Println("username:", r.Form["username"])
+        fmt.Println("password:", r.Form["password"])
+    }
+}
+
+func selectfm(w http.ResponseWriter, r *http.Request) {
+    fmt.Println("method:", r.Method) //get request method
+    if r.Method == "GET" {
+        t, _ := template.ParseFiles("select.html")
+        t.Execute(w, nil)
+    } else {
+        r.ParseForm()
+        // logic part of log in
+        fmt.Println("username:", r.Form["username"])
+        fmt.Println("password:", r.Form["password"])
+    }
+}
 
 func main() {
     http.HandleFunc("/", sayhelloName) // setting router rule
     http.HandleFunc("/login", login)
+    http.HandleFunc("/system", systemfm)
+    http.HandleFunc("/select", selectfm)
+    
     err := http.ListenAndServe(":8080", nil) // setting listening port
     if err != nil {
         log.Fatal("ListenAndServe: ", err)
